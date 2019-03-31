@@ -40,36 +40,32 @@ const countries = [
     }
 ]
 
-//Find the country with the highest population
-//It should print "Rea" in the end
-let biggestCountry = ""
-let biggestPop = countries[0].population // it will recieve same value[0]if it remains in the loop
 
+let biggestCountry = ""
+let biggestPop = 0 
 for (let c of countries) {
-    if (countries[c].population > biggestPop) {
-        biggestCountry = countries[c].name
-        
+    if (c.population > biggestPop) {
+        biggestCountry = c.name
+        biggestPop = c.population
     }
-    // return biggestCountry
 }
 console.log(biggestCountry)
-
-
 
 
 //Console log the name of all the touristic sites that have more than 1000 visitors
 //These should be: the Zoology Tower, the Dolphinarium, and the Turnip Gardens
 //Hint: the `continue` keyword will allow you to skip over an element in an array
 //Alternative hint: remember the || operator
-// const popularAttractions = []
+let popularAttractions = []
 
-// for (let c of countries) {
-//     let landmarks = c.landmarks
+for (let c of countries) {
+    let landmarks = c.landmarks
 
-//     for (let l in landmarks) {
-//         if (l.tourismCount > 1000) {
-//             popularAttractions.push(l.name)
-//         }
-//     }
-// }
-// console.log(popularAttractions)
+    for (let l in landmarks) {
+        if (landmarks[l].tourismCount > 1000) {
+            popularAttractions.push(landmarks[l].name)
+        }
+    }
+}
+console.log(popularAttractions)
+
